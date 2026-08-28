@@ -264,22 +264,22 @@ animateAmbient();
 // ==========================================
 
 const storyData = [
-`Nee first memory story ikkada rayi.`,
+`MADAM NI FIRST TIME CHOOSAYNU`,
 
-`Second story ikkada rayi.`,
+`GREE BAG VESUKONI UNIFORM VESUKONI JADA VESUKONI BOTTU PETTU KONI BUS DIGI COLLEGE GATE DEGARA NADUSTU VACHINDI.`,
 
-`Third story ikkada rayi.`
+`YENTA CUTE GA NAVVUTUNDO CHITTI 🐥`
 ];
 
 const canvases = document.querySelectorAll(".dustCanvas");
 const textBlocks = document.querySelectorAll(".storyText");
 
-canvases.forEach((canvas,index)=>{
+textBlocks.forEach((el, i) => {
+    el.innerText = storyData[i] || "";
+});
 
-    textBlocks[index].innerText = storyData[index];
-
+canvases.forEach((canvas) => {
     initDust(canvas);
-
 });
 
 function initDust(canvas){
@@ -292,37 +292,33 @@ function initDust(canvas){
     canvas.width = W;
     canvas.height = H;
 
-    // ---------- CREATE DUST LAYER ----------
+    // CREATE DUST LAYER
 
-    for(let i=0;i<45000;i++){
+    for(let i=0; i<45000; i++){
 
         const x = Math.random()*W;
         const y = Math.random()*H;
 
-        const s = Math.random()*2+0.5;
+        const s = Math.random()*2 + 0.5;
+        const a = Math.random()*0.28 + 0.08;
 
-        const a = Math.random()*0.28+0.08;
-
-        ctx.fillStyle =
-        `rgba(118,93,66,${a})`;
-
+        ctx.fillStyle = `rgba(118,93,66,${a})`;
         ctx.fillRect(x,y,s,s);
 
     }
 
-    // soft dust fog
+    // SOFT DUST FOG
 
-    for(let i=0;i<120;i++){
+    for(let i=0; i<120; i++){
 
         ctx.beginPath();
 
-        ctx.fillStyle =
-        `rgba(180,150,110,0.025)`;
+        ctx.fillStyle = "rgba(180,150,110,0.025)";
 
         ctx.arc(
             Math.random()*W,
             Math.random()*H,
-            Math.random()*90+30,
+            Math.random()*90 + 30,
             0,
             Math.PI*2
         );
@@ -333,30 +329,28 @@ function initDust(canvas){
 
     ctx.globalCompositeOperation = "destination-out";
 
-    function reveal(px,py){
+    function reveal(px, py){
 
         const g = ctx.createRadialGradient(
-            px,py,10,
-            px,py,70
+            px, py, 10,
+            px, py, 70
         );
 
-        g.addColorStop(0,"rgba(0,0,0,1)");
-        g.addColorStop(.35,"rgba(0,0,0,.85)");
-        g.addColorStop(1,"rgba(0,0,0,0)");
+        g.addColorStop(0, "rgba(0,0,0,1)");
+        g.addColorStop(0.35, "rgba(0,0,0,0.85)");
+        g.addColorStop(1, "rgba(0,0,0,0)");
 
         ctx.fillStyle = g;
 
         ctx.beginPath();
-
-        ctx.arc(px,py,70,0,Math.PI*2);
-
+        ctx.arc(px, py, 70, 0, Math.PI*2);
         ctx.fill();
 
     }
 
-    // ---------- MOUSE ----------
+    // MOUSE
 
-    canvas.addEventListener("mousemove",e=>{
+    canvas.addEventListener("mousemove", e=>{
 
         if(e.buttons!==1) return;
 
@@ -369,9 +363,9 @@ function initDust(canvas){
 
     });
 
-    // ---------- TOUCH ----------
+    // TOUCH
 
-    canvas.addEventListener("touchmove",e=>{
+    canvas.addEventListener("touchmove", e=>{
 
         e.preventDefault();
 
@@ -384,7 +378,7 @@ function initDust(canvas){
             (t.clientY-r.top)*(H/r.height)
         );
 
-    },{passive:false});
+    }, {passive:false});
 
 }
 // ==========================================

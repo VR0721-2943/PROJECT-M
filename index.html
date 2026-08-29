@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PROJECT M</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Floating Dust -->
+  <canvas id="ambientDust"></canvas>
+
+  <!-- ================= LOGIN ================= -->
+
+  <section id="loginPage" class="screen">
+
+    <div class="paper loginPaper">
+
+      <div class="corner tl"></div>
+      <div class="corner tr"></div>
+      <div class="corner bl"></div>
+      <div class="corner br"></div>
+
+      <div class="logoArea">
+
+        <h1>PROJECT M</h1>
+
+        <p>MEMORY ARCHIVE</p>
+
+      </div>
+
+      <div class="divider"></div>
+
+      <p class="hint">
+        Password Miku Telisinde Andi.
+      </p>
+
+      <input
+        id="passwordInput"
+        type="password"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="Enter Password">
+
+      <button id="unlockBtn">
+        UNLOCK MEMORY
+      </button>
+
+      <p id="errorText"></p>
+
+      <div id="secondHint" class="hidden">
+
+        Password Miku Telisinde Andi...
+
+        <br><br>
+
+        Kani Meru Nanu Marchipoie Nattu
+        Danini Kooda Marachipoyaru Anukunta.
+
+      </div>
+
+      <div id="lockBox" class="hidden">
+
+        <h3>MEMORY LOCKED</h3>
+
+        <p>Access Returns Tomorrow</p>
+
+        <div id="countdown">
+          7:29 PM
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ================= MEMORY ================= -->
+
+  <section id="memoryPage" class="screen hidden">
+
+    <div class="paper memoryPaper">
+
+      <header class="topBar">
+
+        <div class="titleFrame">
+
+          <span>INCIDENT / MEMORY NAME</span>
+
+          <h2 id="incidentTitle">
+            FIRST MEET
+          </h2>
+
+        </div>
+
+        <button id="musicBtn">
+          ♫
+        </button>
+
+      </header>
+
+      <!-- STORIES -->
+
+      <main id="storyContainer">
+
+        <article class="storyCard">
+
+          <div class="storyNumber">
+            01
+          </div>
+
+          <div class="storyBody">
+
+            <div id="story1" class="storyText"></div>
+
+            <canvas id="dust1" class="dustCanvas"></canvas>
+
+          </div>
+
+        </article>
+
+        <article class="storyCard">
+
+          <div class="storyNumber">
+            02
+          </div>
+
+          <div class="storyBody">
+
+            <div id="story2" class="storyText"></div>
+
+            <canvas id="dust2" class="dustCanvas"></canvas>
+
+          </div>
+
+        </article>
+
+        <article class="storyCard">
+
+          <div class="storyNumber">
+            03
+          </div>
+
+          <div class="storyBody">
+
+            <div id="story3" class="storyText"></div>
+
+            <canvas id="dust3" class="dustCanvas"></canvas>
+
+          </div>
+
+        </article>
+
+      </main>
+
+      <footer>
+
+        <div class="quote">
+
+          “Some memories are never erased...
+          They only gather dust.”
+
+        </div>
+
+      </footer>
+
+    </div>
+
+  </section>
+
+  <!-- Background Music -->
+
+  <audio id="bgMusic" preload="auto" loop>
+
+    <source src="music.mp3" type="audio/mpeg">
+
+  </audio>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
